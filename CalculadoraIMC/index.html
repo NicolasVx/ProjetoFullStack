@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora IMC</title>
+    <script src="script.js"></script>
+</head>
+<body>
+    <form name="form1">
+        <h1>Calculadora - IMC</h1>
+        <label for="peso">Peso em Kg:</label><br>
+        <input type="number" id="peso" name="peso"><br>
+        <label for="altura">Altura em Metros:</label><br>
+        <input type="number" id="altura" name="altura"><br>
+        <label for="resultado">Seu IMC é:</label><br>
+        <input type="text" id="resultado" name="resultado"><br>
+        <label for="classificacao">Classificação:</label><br>
+        <input type="text" id="classificacao" name="classificacao"><br><br>
+        <input type="button" name="calc" value="Calcular" onclick="calcular()">
+    </form>
+
+<script type="text/javascript" id="dcoder_script">function calcular() {
+  var peso = parseFloat(document.form1.peso.value);
+  var altura = parseFloat(document.form1.altura.value);
+ 
+  var imc = peso / (altura * altura);
+  var classificacao = "";
+
+    if (imc < 18.5) {
+      classificacao = "Abaixo do peso";
+    }else if (imc >= 18.5 && imc < 24.9) {
+      classificacao = "Peso normal";
+    }else if (imc >= 25 && imc < 29.9) {
+      classificacao = "Sobrepeso";
+    }else {
+      classificacao = "Obesidade";
+    }
+
+    document.form1.resultado.value = imc.toFixed(2);
+    document.form1.classificacao.value = classificacao;
+    }</script></body></html>
